@@ -107,4 +107,4 @@ def simulate_scalar_trace_for_file(filename="allpubs_point.txt", max_bits=20):
 
 # Run the function
 if __name__ == "__main__":
-    simulate_scalar_trace_for_file("allpubs_point.txt", max_bits=10)
+    simulate_scalar_trace_for_file("allpubs_point.txt", max_bits=256)
