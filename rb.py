@@ -1,6 +1,7 @@
 from coincurve import PublicKey
 from multiprocessing import Process
 from time import time
+from random import randint
 import os
 
 # Constants
@@ -72,9 +73,14 @@ def main():
     workers = []
 
     for i in range(NUM_WORKERS):
-        start = i * chunk + 1
-        end = (i + 1) * chunk if i < NUM_WORKERS - 1 else N
-        p = Process(target=worker, args=(i, start, end, target_x_set))
+        # start = i * chunk + 1
+        # end = (i + 1) * chunk if i < NUM_WORKERS - 1 else N
+        start = randint(1, N)
+        end = randint(1, N)
+        if start < end:
+            p = Process(target=worker, args=(i, start, end, target_x_set))
+        else:
+            p = Process(target=worker, args=(i, end, start, target_x_set))
         workers.append(p)
         p.start()
 
