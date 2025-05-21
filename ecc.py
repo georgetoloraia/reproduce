@@ -47,7 +47,7 @@ def worker(target_x_set, queue):
 
                     pub_trd = PublicKey.from_valid_secret(finished.to_bytes(32, 'big'))
                     x_trd = pub_trd.point()[0]
-                    print(f"04{hex(pub_trd.point()[0])[2:].zfill(64)}{hex(pub_trd.point()[1])[2:].zfill(64)}")
+                    # print(f"04{hex(pub_trd.point()[0])[2:].zfill(64)}{hex(pub_trd.point()[1])[2:].zfill(64)}")
                     # print(x_trd)
                     if x_trd in target_x_set:
                         queue.put(finished)
